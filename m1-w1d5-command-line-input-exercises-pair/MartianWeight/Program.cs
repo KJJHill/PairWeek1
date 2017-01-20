@@ -24,8 +24,40 @@ namespace MartianWeight
         235 lbs.on Earth, is 88 lbs.on Mars.
         185 lbs.on Earth, is 69 lbs.on Mars. 
         */
+        //check the string to check for letters.
+        //take a string of Earth weights and turn into string array.
+        //convert to double. do math. 
         static void Main(string[] args)
         {
+            
+            string earthWeights = "";
+            Console.WriteLine("Enter a series of Earth Weights (space-separated): ");
+            earthWeights = Console.ReadLine();
+
+            //double earthWeightDouble = 0;
+            //bool isNumeric = Double.TryParse(earthWeights, out earthWeightDouble);
+            
+            //give an error if the the amount of bill is not in numeric form
+            //while (!isNumeric)
+            //{
+            //    Console.WriteLine("Please enter only numeric numbers followed by a single space: ");
+            //    earthWeights = Console.ReadLine();
+            //    isNumeric = Double.TryParse(earthWeights, out earthWeightDouble);
+            //    Console.WriteLine();
+            //}
+
+            string[] earthWeightsArray = earthWeights.Split(' ');
+            double[] martianWeightArray = new double[earthWeightsArray.Length];
+            for (int i = 0; i<earthWeightsArray.Length;i++)
+            {
+                martianWeightArray[i] = double.Parse(earthWeightsArray[i]) * 0.378;
+            }
+            for (int x=0; x<martianWeightArray.Length; x++)
+            {
+
+                //  earthWeightsArray[x] *= 0.378;
+                Console.WriteLine(earthWeightsArray[x] + "lbs.on Earth, is " + martianWeightArray[x] + "lbs on Mars.");
+            }
         }
     }
 }
